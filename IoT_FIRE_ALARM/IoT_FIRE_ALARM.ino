@@ -18,13 +18,13 @@ WHAT THIS PROGRAM DOES:
 #include <PubSubClient.h>   // MQTT library for ThingsBoard
 
 // ===== STEP 2: WIFI & THINGSBOARD CONFIG =====
-const char* WIFI_SSID = "IoT";     // Change this to your WiFi name
-const char* WIFI_PASSWORD = "agusramelan"; // Change this to your WiFi password
+const char* WIFI_SSID = "YOUR_SSID";     // Change this to your WiFi name
+const char* WIFI_PASSWORD = "YOUR_PASSWORD"; // Change this to your WiFi password
 
 // ThingsBoard configuration
 const char* TB_SERVER = "thingsboard.cloud";
 const int TB_PORT = 1883;
-const char* TB_ACCESS_TOKEN = "8thnpj8pup59ithfh3cp"; // Get this from ThingsBoard device
+const char* TB_ACCESS_TOKEN = "CHANGE_WITH_YOUR_TOKEN"; // Get this from ThingsBoard device
 
 // ===== STEP 3: DEFINE PINS =====
 // Think of this like labeling wires
