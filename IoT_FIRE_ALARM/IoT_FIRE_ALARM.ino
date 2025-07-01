@@ -2,7 +2,7 @@
 ==========================================
           SUMMER COURSE PROGRAM
 IOT INTEGRATED FIRE ALARM DETECTION SYSTEM
-          WITH THINGSBOARD INTEGRATION
+          WITH THINGSBOARD
 ==========================================
 
 WHAT THIS PROGRAM DOES:
