@@ -39,9 +39,9 @@ void setup() {
   
   // Print welcome message
   Serial.println("================================");
-  Serial.println("🎓 FIRE ALARM                  ");
+  Serial.println("    FIRE ALARM                  ");
   Serial.println("================================");
-  Serial.println("🚨 Danger limit: " + String(DANGER_TEMP) + "°C");
+  Serial.println("   Danger limit: " + String(DANGER_TEMP) + "°C");
   Serial.println("--------------------------------");
   
   // Setup pins (tell Arduino what each pin does)
@@ -57,7 +57,7 @@ void setup() {
   digitalWrite(RED_LED, LOW);     // Red LED OFF
   digitalWrite(BUZZER, LOW);      // Buzzer OFF
   
-  Serial.println("✅ System ready! Starting monitoring...");
+  Serial.println("System ready! Starting monitoring...");
   Serial.println("================================");
 }
 
@@ -83,7 +83,7 @@ void loop() {
 
 // Function 1: Read temperature from sensor
 void readTemperature() {
-  Serial.println("📊 Reading sensor...");
+  Serial.println("Reading sensor...");
   
   // Get data from DHT11
   temperature = dht.readTemperature();
@@ -91,23 +91,23 @@ void readTemperature() {
   
   // Check if sensor is working
   if (isnan(temperature)) {
-    Serial.println("❌ Sensor error! Check connections!");
+    Serial.println("Sensor error! Check connections!");
     return;
   }
   
-  Serial.println("✅ Sensor data received!");
+  Serial.println("Sensor data received!");
 }
 
 // Function 2: Decide if there's fire danger
 void checkForFire() {
-  Serial.println("🔍 Checking for danger...");
+  Serial.println("Checking for danger...");
   
   if (temperature >= DANGER_TEMP) {
     is_fire = true;  // DANGER!
-    Serial.println("🚨 DANGER: Temperature too high!");
+    Serial.println("DANGER: Temperature too high!");
   } else {
     is_fire = false; // SAFE
-    Serial.println("✅ SAFE: Temperature normal");
+    Serial.println("SAFE: Temperature normal");
   }
 }
 
@@ -115,13 +115,13 @@ void checkForFire() {
 void controlOutputs() {
   if (is_fire == true) {
     // DANGER MODE
-    Serial.println("🔴 Activating danger mode...");
+    Serial.println("Activating danger mode...");
     digitalWrite(GREEN_LED, LOW);   // Turn OFF green LED
     digitalWrite(RED_LED, HIGH);    // Turn ON red LED
     digitalWrite(BUZZER, HIGH);     // Turn ON buzzer
   } else {
     // NORMAL MODE  
-    Serial.println("🟢 Activating normal mode...");
+    Serial.println("Activating normal mode...");
     digitalWrite(GREEN_LED, HIGH);  // Turn ON green LED
     digitalWrite(RED_LED, LOW);     // Turn OFF red LED
     digitalWrite(BUZZER, LOW);      // Turn OFF buzzer
@@ -131,22 +131,22 @@ void controlOutputs() {
 // Function 4: Show current status
 void showStatus() {
   Serial.println("");
-  Serial.println("📋 === STATUS REPORT ===");
-  Serial.println("🌡️  Temperature: " + String(temperature) + "°C");
-  Serial.println("💧 Humidity: " + String(humidity) + "%");
-  Serial.println("🎯 Danger limit: " + String(DANGER_TEMP) + "°C");
+  Serial.println("=== STATUS REPORT ===");
+  Serial.println("Temperature: " + String(temperature) + "°C");
+  Serial.println("Humidity: " + String(humidity) + "%");
+  Serial.println("Danger limit: " + String(DANGER_TEMP) + "°C");
   
   if (is_fire) {
-    Serial.println("🚨 STATUS: FIRE DANGER!");
-    Serial.println("🔴 Red LED: ON");
-    Serial.println("🔊 Buzzer: ON");
+    Serial.println("STATUS: FIRE DANGER!");
+    Serial.println("Red LED: ON");
+    Serial.println("Buzzer: ON");
   } else {
-    Serial.println("✅ STATUS: NORMAL");
-    Serial.println("🟢 Green LED: ON");  
-    Serial.println("🔇 Buzzer: OFF");
+    Serial.println("STATUS: NORMAL");
+    Serial.println("Green LED: ON");  
+    Serial.println("Buzzer: OFF");
   }
   
-  Serial.println("⏱️  Time: " + String(millis()/1000) + " seconds");
+  Serial.println("Time: " + String(millis()/1000) + " seconds");
   Serial.println("========================");
   Serial.println("");
 }
