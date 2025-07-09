@@ -18,7 +18,7 @@ const char* tb_token = "TOKEN_THINGSBOARD";
 WiFiClient espClient;
 PubSubClient client(espClient);
 
-// Fungsi: Koneksi ke WiFi
+// Wifi Connection
 void connectWiFi() {
   Serial.print("Connecting to WiFi");
   WiFi.begin(ssid, password);
@@ -31,7 +31,7 @@ void connectWiFi() {
   Serial.println(WiFi.localIP());
 }
 
-// Fungsi: Koneksi ke ThingsBoard
+// ThingsBoard Connection
 void connectThingsBoard() {
   client.setServer(tb_server, tb_port);
   while (!client.connected()) {
@@ -49,7 +49,7 @@ void connectThingsBoard() {
   }
 }
 
-// Fungsi: Callback jika ada perintah masuk dari ThingsBoard
+// Callback from thingsboard
 void callback(char* topic, byte* payload, unsigned int length) {
   Serial.println("Received RPC call...");
   
