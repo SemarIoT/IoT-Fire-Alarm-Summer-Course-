@@ -7,8 +7,8 @@ IOT INTEGRATED FIRE ALARM DETECTION SYSTEM
 
 WHAT THIS PROGRAM DOES:
 - Reads temperature from DHT11 sensor
-- If temperature > 30°C → FIRE ALARM ON
-- If temperature ≤ 30°C → NORMAL MODE
+- If temperature > 35°C → FIRE ALARM ON
+- If temperature ≤ 35°C → NORMAL MODE
 - Sends data to ThingsBoard Cloud every loop
 */
 
@@ -44,7 +44,7 @@ float humidity;          // Store humidity value
 bool is_fire = false;    // Is there fire? true/false
 
 // Settings you can change:
-float DANGER_TEMP = 32.0;  // Temperature limit (°C)
+float DANGER_TEMP = 35.0;  // Temperature limit (°C)
 int LOOP_DELAY = 1000;     // Delay 1 seconds each loop
 
 // ===== STEP 6: SETUP FUNCTION (RUNS ONCE) =====
